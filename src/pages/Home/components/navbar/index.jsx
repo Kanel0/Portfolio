@@ -191,7 +191,7 @@ function Navbar() {
             transition={{ duration: 0.8, delay: 0.2 }}
             data-aos="fade-up"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+            <h1 className="text-4xl md:text-5xl font-[kantolista] lg:text-6xl font-bold text-gray-800 mb-4">
               I'm a <br />
               <Typed
                 strings={[
@@ -202,7 +202,7 @@ function Navbar() {
                 typeSpeed={50}
                 backSpeed={30}
                 loop
-                className="text-violet-700 block mt-2"
+                className="text-violet-700 block mt-2 font-[kantolista]"
               />
             </h1>
             <p className="text-lg text-gray-600 mt-6 max-w-lg">
@@ -222,7 +222,7 @@ function Navbar() {
               <div className="absolute inset-0 bg-violet-700 rounded-full opacity-10 -z-10"></div>
               <div className="w-64 h-64 rounded-full flex items-center justify-center border-8 border-violet-100">
                 <div className="text-center">
-                  <p className="text-7xl font-bold text-violet-700">I'm</p>
+                  <p className="text-7xl font-bold text-violet-700 font-[kantolista]">I'm</p>
                   <p className="text-xl text-gray-600 mt-2">a Developer</p>
                 </div>
               </div>

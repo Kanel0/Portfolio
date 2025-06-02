@@ -1,166 +1,118 @@
-import React , {useEffect} from 'react'
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-function Skills
-() {
 
+function Skills() {
   useEffect(() => {
     AOS.init({
-      duration: 3000,
-      delay: 200,
+      duration: 1000,
       easing: 'ease-in-out',
       once: true
     });
   }, []);
 
+  // Skill categories data
+  const skillCategories = [
+    {
+      title: "Frontend Developer",
+      items: [
+        { name: "HTML", level: 90 },
+        { name: "CSS", level: 85 },
+        { name: "JavaScript", level: 80 },
+      ],
+      animation: "zoom-in",
+      duration: 500
+    },
+    {
+      title: "Frontend Libraries & Framework",
+      items: [
+        "React",
+        "Tailwind CSS",
+        "Electron",
+        "Flutter",
+        "Bootstrap",
+        "Three.js",
+        "TypeScript"
+      ],
+      animation: "zoom-in",
+      duration: 1000
+    },
+    {
+      title: "Design UX/UI",
+      items: ["Figma"],
+      animation: "zoom-in",
+      duration: 1500
+    },
+    {
+      title: "Backend Developer",
+      items: ["Firebase", "Next.js", "Node.js", "Java", "PHP"],
+      animation: "zoom-in",
+      duration: 2000
+    },
+    {
+      title: "CMS",
+      items: ["WordPress"],
+      animation: "zoom-in",
+      duration: 2500
+    },
+    {
+      title: "Database",
+      items: ["MongoDB", "MySQL"],
+      animation: "zoom-in",
+      duration: 3000
+    },
+    {
+      title: "ERP",
+      items: ["Odoo", "Dolibarr"],
+      animation: "zoom-in",
+      duration: 3000
+    }
+  ];
+
+  // Skill item component
+  const SkillItem = ({ name, level }) => (
+    <div className="flex items-center justify-between py-2">
+      <span className="text-md font-medium text-gray-700">{name}</span>
+      {level && (
+        <div className="w-40 h-2 bg-gray-200 rounded-full">
+          <div 
+            className="h-full bg-purple-600 rounded-full" 
+            style={{ width: `${level}%` }}
+          ></div>
+        </div>
+      )}
+    </div>
+  );
 
   return (
-    <div>
-        <div id='skills' className='lg:w-full lg:h-screen bg-[#e4e4e7] w-96'>
- <div className='lg:p-12 p-5'>
-  
-  <div className='flex lg:flex-row flex-col py-12'>
-    <div>
-
-    <h1
-    data-aos="zoom-in"
-    data-aos-duration="900"
-    className='text-2xl font-bold pl-14 ml-4  text-[#3f3f46]'>Frontend Developer</h1>
-    <div
-    data-aos="zoom-in"
-    data-aos-duration="1000"
-    className='lg:w-96 h-36 w-80 rounded-2xl shadow-2xl lg:ml-14 mt-5 bg-white p-6 '>
-      <div className='flex flex-row  '>
-      <p className='text-lg font-bold  ml-6 text-[#3f3f46]'>html</p>
-      <div className='w-40 h-3 bg-[#5b21b6] ml-20  mt-2 rounded-full'></div>
+    <section id="skills" className="w-full min-h-screen bg-gray-100 py-12">
+      <div className="container mx-auto px-4 lg:px-12 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillCategories.map((category, index) => (
+            <div 
+              key={index}
+              data-aos={category.animation}
+              data-aos-duration={category.duration}
+              className="mb-8"
+            >
+              <h2 className="text-xl font-bold text-gray-800 mb-4 pl-2 border-l-4 border-purple-600">
+                {category.title}
+              </h2>
+              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <div className="space-y-3">
+                  {category.items.map((item, idx) => (
+                    typeof item === 'string' 
+                      ? <SkillItem key={idx} name={item} />
+                      : <SkillItem key={idx} {...item} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>css</p>
-      <div className='w-36 h-3 bg-[#3f3f46] ml-24 mt-1 rounded-full'></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>javascript</p>
-      <div className='w-28 h-3 bg-[#e4e4e7] ml-10 mt-1 rounded-full'></div>
-      </div>
-    </div>
-    <div 
-    data-aos="zoom-in"
-    data-aos-duration="2000"
-    className='lg:w-96 w-80 h-80 rounded-2xl shadow-2xl lg:ml-14 mt-5 bg-white p-6 '>
-      <div className='flex flex-row  '>
-      <p className='text-lg font-bold  ml-6 text-[#3f3f46]'>React</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>tailwindcss</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Electron</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Flutter</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Boostrap</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>three.js</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Typescript</p>
-      <div className=''></div>
-      </div>
-    </div>
-    </div>
-    <div>
-   
-    <h1
-    data-aos="zoom-in"
-    data-aos-duration="2500"
-    className='text-2xl font-bold pl-14 ml-4 mt-5 lg:mt-0  text-[#3f3f46]'>Design UX\UI</h1>
-    <div
-    data-aos="zoom-in"
-    data-aos-duration="3000"
-    className='lg:w-96 w-80 h-20 rounded-2xl shadow-2xl lg:ml-14 mt-5 bg-white p-6 '>
-      <div className='flex flex-row  '>
-      <p className='text-lg font-bold  ml-6 text-[#3f3f46]'>Figma</p>
-      <div className=''></div>
-      </div>
-    </div>
- 
-    <h1 
-    data-aos="zoom-in"
-    data-aos-duration="3500"
-    className='text-2xl font-bold pl-14 ml-4 lg:mt-28  mt-5 text-[#3f3f46]'>Backend developer</h1>
-    <div
-    data-aos="zoom-in"
-    data-aos-duration="4000"
-    className='lg:w-96 w-80 h-60 rounded-2xl shadow-2xl lg:ml-14 mt-5 bg-white p-6 '>
-      <div className='flex flex-row  '>
-      <p className='text-lg font-bold  ml-6 text-[#3f3f46]'>Firebase</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Nextjs</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Nodejs</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Java</p>
-      <div className=''></div>
-      </div>
-      <div className='flex flex-row p-1 '>
-      <p className='text-lg font-bold  ml-5 text-[#3f3f46]'>Php</p>
-      <div className=''></div>
-      </div>
-    </div>
-    </div>
-    <div>
-    <h1
-    data-aos="zoom-in"
-    data-aos-duration="4500"
-    className='text-2xl font-bold pl-14 ml-4 mt-5 lg:mt-0 text-[#3f3f46]'>CMS</h1>
-    <div 
-    data-aos="zoom-in"
-    data-aos-duration="5000"
-    className='lg:w-96 w-80 h-20 rounded-2xl shadow-2xl lg:ml-14 mt-5 bg-white p-6 '>
-      <div className='flex flex-row  '>
-      <p className='text-lg font-bold  ml-6 text-[#3f3f46]'>WordPress</p>
-      <div className=''></div>
-      </div>
-    </div>
-    <h1
-    data-aos="zoom-in"
-    data-aos-duration="4500"
-    className='text-2xl font-bold pl-14 ml-4 mt-5 lg:mt-28 text-[#3f3f46]'>Data base</h1>
-    <div 
-    data-aos="zoom-in"
-    data-aos-duration="5000"
-    className='lg:w-96 w-80 h-32 rounded-2xl shadow-2xl lg:ml-14 mt-5 bg-white p-6 '>
-      <div className='flex flex-col  '>
-      <p className='text-lg font-bold  ml-6 text-[#3f3f46]'>Mongodb</p>
-      <div className=''></div>
-      <p className='text-lg font-bold mt-4  ml-6 text-[#3f3f46]'>Mysql</p>
-      <div className=''></div>
-      </div>
-    </div>
-    </div>
-    <div >
-
-    </div>
-  </div>
- </div>
-        </div>    
-    </div>
-  )
+    </section>
+  );
 }
 
-export default Skills
+export default Skills;
