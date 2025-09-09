@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
 
 function Footer() {
@@ -59,6 +59,16 @@ function Footer() {
               href="https://twitter.com/DongaAnelka" 
               icon={<FaTwitter />}
               colorHover="hover:text-blue-400"
+            />
+            <SocialIcon 
+              href="https://github.com/Kanel0" 
+              icon={<FaGithub />}
+              colorHover="hover:text-white"
+            />
+             <SocialIcon 
+              href="https://www.linkedin.com/in/anelka-donga-289b8122a/" 
+              icon={<FaLinkedin />}
+              colorHover="-hover:text-blue-600"
             />
           </div>
         </div>
