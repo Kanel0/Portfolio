@@ -6,6 +6,7 @@ import Navbar from './components/navbar/index'
 import Services from './components/services'
 import Skills from './components/skills'
 import Project from './components/project'
+import Experience from './components/experiences'
 function HomePage() {
   return (
     <div className='scroll-smooth overflow-hidden'>
@@ -14,7 +15,8 @@ function HomePage() {
        <Contact></Contact>
        <Services></Services>
        <Skills></Skills> 
-       <Project></Project>     
+       <Project></Project>
+       <Experience></Experience>     
        <Footer></Footer>
     </div>
   )

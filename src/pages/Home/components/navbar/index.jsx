@@ -36,6 +36,7 @@ function Navbar() {
     { id: 'services', label: 'Services' },
     { id: 'contact', label: 'Contact' },
     { id: 'project', label: 'Project' },
+    { id: 'experience', label: 'Experiences' },
   ];
 
   const socialLinks = [
