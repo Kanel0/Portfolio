@@ -26,7 +26,7 @@ function Footer() {
               ['About', '#about'],
               ['Skills', '#skills'],
               ['Services', '#services'],
-              ['Contact', '#contact']
+              ['Contact', '#contact'],
               ['Project', '#project']
             ].map(([title, url]) => (
               <a
