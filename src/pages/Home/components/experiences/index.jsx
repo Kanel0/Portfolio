@@ -18,6 +18,7 @@ function Experience() {
     {
       id: 1,
       company: "MajSoft",
+      link: "https://majsoft.mg",
       position: "Odoo Developer",
       location: "Mahajanga",
       period: "January 2024 – April 2025",
@@ -41,6 +42,7 @@ function Experience() {
       id: 2,
       company: "Commune Urbaine Mahajanga",
       position: "Fullstack Developer",
+      link: "https://mairie-mahajanga.mg",
       location: "Mahajanga",
       period: "December 2022 – Present",
       type: "Contract",
@@ -63,6 +65,7 @@ function Experience() {
     {
       id: 3,
       company: "Gasikara Digital",
+      link: "https://digital.gasikara.mg",
       position: "Fullstack Developer",
       location: "Mahajanga",
       period: "November 2024 – January 2025",
@@ -130,9 +133,21 @@ function Experience() {
                         {exp.position}
                       </h3>
                       <div className="flex items-center text-indigo-600 font-semibold mb-2">
-                        <MdBusiness className="mr-2" />
+                    <MdBusiness className="mr-2" />
+                    {exp.link ? (
+                        <a
+                        href={exp.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline hover:text-indigo-800 transition-colors"
+                        >
                         {exp.company}
-                      </div>
+                        </a>
+                    ) : (
+                        exp.company
+                    )}
+                    </div>
+
                       <div className="flex flex-wrap gap-4 text-gray-500 text-sm">
                         <div className="flex items-center">
                           <MdLocationOn className="mr-1" />
