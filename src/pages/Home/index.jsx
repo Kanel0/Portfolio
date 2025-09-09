@@ -5,7 +5,7 @@ import Header from './components/header/index'
 import Navbar from './components/navbar/index'
 import Services from './components/services'
 import Skills from './components/skills'
-import Project from './components/project/project'
+import Project from './components/project'
 function HomePage() {
   return (
     <div className='scroll-smooth overflow-hidden'>
