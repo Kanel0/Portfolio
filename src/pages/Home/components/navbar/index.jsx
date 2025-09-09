@@ -46,7 +46,7 @@ function Navbar() {
     { 
       icon: <BsGithub className="text-violet-700 text-xl" />, 
       label: 'GitHub',
-      url: 'https://github.com/Kanel04' 
+      url: 'https://github.com/Kanel0' 
     }
   ];
 

@@ -166,7 +166,7 @@ function Contact() {
                   <BsTwitter className="text-gray-600 text-xl group-hover:text-white" />
                 </a>
                 <a
-                  href="https://github.com/Kanel04"
+                  href="https://github.com/Kanel0"
                   className="bg-gray-100 hover:bg-gray-800 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group"
                   target="_blank"
                   rel="noopener noreferrer"
