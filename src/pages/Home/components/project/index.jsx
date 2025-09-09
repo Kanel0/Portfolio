@@ -38,7 +38,7 @@ function Project() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover rounded-t-xl"
+                  className="w-full h-full  rounded-t-xl"
                 />
               </div>
 
