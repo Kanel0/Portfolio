@@ -40,7 +40,7 @@ function Experience() {
     {
       id: 2,
       company: "Commune Urbaine Mahajanga",
-      position: "Frontend Developer",
+      position: "Fullstack Developer",
       location: "Mahajanga",
       period: "December 2022 – Present",
       type: "Contract",
@@ -63,7 +63,7 @@ function Experience() {
     {
       id: 3,
       company: "Gasikara Digital",
-      position: "Frontend Developer",
+      position: "Fullstack Developer",
       location: "Mahajanga",
       period: "November 2024 – January 2025",
       type: "Contract",
