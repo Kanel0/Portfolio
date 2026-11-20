@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSiteContent } from "../../../../lib/content-context";
 import cvPdf from "../document/CV_Jaosoa_Donga_Anelka_EN.pdf";
+import portrait from "../assets/portrait.jpg";
 
 const wireA = "M126 41 C 170 41, 176 116, 188 131";
 const wireB = "M294 41 C 250 41, 244 116, 232 131";
@@ -72,6 +73,42 @@ function SystemMap() {
 export default function Header() {
   const { content } = useSiteContent();
   const { profile, hero } = content;
+  const frameRef = useRef(null);
+  const imageRef = useRef(null);
+
+  // Parallax: the face drifts inside its frame as the hero scrolls past.
+  useEffect(() => {
+    const frame = frameRef.current;
+    const image = imageRef.current;
+    if (!frame || !image) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frameId = 0;
+    const update = () => {
+      frameId = 0;
+      const rect = frame.getBoundingClientRect();
+      const travel = window.innerHeight + rect.height;
+      const progress = Math.min(
+        1,
+        Math.max(0, (window.innerHeight - rect.top) / travel)
+      );
+      const shift = (progress - 0.5) * 10;
+      image.style.transform = `translateY(${shift.toFixed(2)}%)`;
+    };
+    const schedule = () => {
+      if (!frameId) frameId = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      image.style.transform = "";
+    };
+  }, []);
 
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
@@ -112,7 +149,25 @@ export default function Header() {
           </p>
         </div>
 
-        <SystemMap />
+        <div className="hero-visual">
+          <figure className="portrait reveal">
+            <div className="portrait-frame" ref={frameRef}>
+              <img
+                ref={imageRef}
+                src={portrait}
+                alt="Portrait of Jaosoa Donga Anelka"
+                width="275"
+                height="520"
+              />
+            </div>
+            <figcaption>
+              <span>Jaosoa Donga Anelka</span>
+              <span>2026</span>
+            </figcaption>
+          </figure>
+
+          <SystemMap />
+        </div>
       </div>
     </section>
   );
