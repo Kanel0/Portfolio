@@ -7,14 +7,8 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
-    extend: {
-      backgroundImage:{
-        'hero-image':'url("./src/pages/Home/components/assets/laptop2.jpg")',
-        
-
-      },
-    },
   },
   plugins: [],
   
 };
+

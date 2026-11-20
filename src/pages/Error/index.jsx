@@ -1,20 +1,16 @@
-import {Link} from 'react-router-dom';
-export default function ErrorPage() {
-    return (
-        <div className="flex justify-center items-center text-center h-screen">
-            <h1 className="text-2xl sm:text-3xl font-extrabold ">
-                404
-            </h1>
-            <h2 className="mt-2 text-lg ml-2 sm:mt-0">
-               Page not found 
-            </h2>
-            <Link to="/" className="text-2xl text-[#5b21b6] cursor-pointer ml-2 hover:underline">Click here!</Link>
-        </div>
-    )
-}
+import React from "react";
+import { Link } from "react-router-dom";
 
-ErrorPage.layoutProps = {
-    meta: {
-        title: '404',
-    },
+export default function ErrorPage() {
+  return (
+    <main className="error-page">
+      <h1>404</h1>
+      <p>This page doesn't exist.</p>
+      <div>
+        <Link to="/" className="btn btn-primary">
+          Back to the portfolio
+        </Link>
+      </div>
+    </main>
+  );
 }

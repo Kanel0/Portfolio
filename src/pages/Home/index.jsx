@@ -1,25 +1,30 @@
-import React from 'react'
-import Contact from './components/contact'
-import Footer from './components/footer'
-import Header from './components/header/index'
-import Navbar from './components/navbar/index'
-import Services from './components/services'
-import Skills from './components/skills'
-import Project from './components/project'
-import Experience from './components/experiences'
+import React from "react";
+import Navbar from "./components/navbar";
+import Header from "./components/header";
+import Project from "./components/project";
+import Experience from "./components/experiences";
+import Services from "./components/services";
+import Skills from "./components/skills";
+import Education from "./components/education";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
+
 function HomePage() {
   return (
-    <div className='scroll-smooth overflow-hidden'>
-       <Navbar></Navbar>
-       <Header></Header>
-       <Contact></Contact>
-       <Services></Services>
-       <Skills></Skills> 
-       <Project></Project>
-       <Experience></Experience>     
-       <Footer></Footer>
-    </div>
-  )
+    <>
+      <Navbar />
+      <main id="main">
+        <Header />
+        <Project />
+        <Experience />
+        <Services />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
 }
 
-export default HomePage
+export default HomePage;
